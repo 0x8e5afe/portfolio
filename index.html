@@ -942,6 +942,76 @@
         opacity: 0.9;
     }
 
+    .project-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 12px;
+        justify-content: flex-end;
+    }
+
+    .project-action-btn {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: linear-gradient(135deg, rgba(255, 116, 41, 0.12), rgba(255, 116, 41, 0.04));
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-primary);
+        font-size: 1.2rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.95);
+        transition: all var(--transition-medium);
+        isolation: isolate;
+    }
+
+    .project-action-btn::before {
+        content: '';
+        position: absolute;
+        inset: -40%;
+        background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.14), transparent 55%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
+    }
+
+    .project-action-btn::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, rgba(255, 255, 255, 0.16), transparent 60%);
+        transform: translateX(-30%);
+        opacity: 0;
+        transition: transform 0.35s ease, opacity 0.35s ease;
+        z-index: 0;
+    }
+
+    .project-action-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent-light);
+        background: linear-gradient(135deg, rgba(255, 116, 41, 0.25), rgba(255, 69, 0, 0.12));
+        transform: translateY(-2px) scale(1.03);
+        box-shadow:
+            0 18px 42px rgba(0, 0, 0, 1),
+            0 0 20px var(--accent-glow);
+    }
+
+    .project-action-btn:hover::before {
+        opacity: 0.65;
+    }
+
+    .project-action-btn:hover::after {
+        opacity: 0.55;
+        transform: translateX(0);
+    }
+
+    .project-action-btn i {
+        position: relative;
+        z-index: 1;
+    }
+
     /* Cards reveal */
     .education-card,
     .cert-card,
@@ -1501,9 +1571,14 @@
                             <i class="bi bi-shield-lock" title="Security automation"></i>
                             <i class="bi bi-box" title="Modular components"></i>
                         </div>
-                        <a href="https://0x8e5afe.github.io/cybersuite/" target="_blank" class="btn btn-download btn-sm">
-                            <i class="bi bi-github me-2"></i>View on GitHub
-                        </a>
+                        <div class="project-actions">
+                            <a href="https://github.com/0x8e5afe/cybersuite" target="_blank" class="project-action-btn" aria-label="View project on GitHub" title="GitHub repository">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="https://0x8e5afe.github.io/cybersuite/" target="_blank" class="project-action-btn" aria-label="Open project website" title="Live site">
+                                <i class="bi bi-globe"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
